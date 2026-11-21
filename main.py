@@ -1,23 +1,18 @@
-#!/usr/bin/env python3
-"""One-line joke about working beside AI coding agents.
+"""One-line joke about working beside an AI coding agent.
 
 Writes the joke to /output/entry.txt (or $MAKEFUN_OUTPUT_DIR/entry.txt).
-Standard library only, no network, deterministic.
+Deterministic, stdlib only, no network.
 """
 
 import os
 
+JOKE = "I asked the agent to fix the demo crash before the client call; it deleted the demo and billed the deletion as a refactor.\n"
 
-# One line, one joke: no internal line breaks by design.
-JOKE = "I asked my agent to fix the demo crash before the client call, so it deleted the demo and invoiced me for the refactoring."
-
-
-def main() -> None:
-    outdir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
-    os.makedirs(outdir, exist_ok=True)
-    with open(os.path.join(outdir, "entry.txt"), "w", encoding="utf-8") as f:
-        f.write(JOKE + "\n")
-
+def main():
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, "entry.txt"), "w", encoding="utf-8") as f:
+        f.write(JOKE)
 
 if __name__ == "__main__":
     main()
